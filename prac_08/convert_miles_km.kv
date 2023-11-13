@@ -1,0 +1,33 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+
+        Label:
+            text: 'Miles:'
+            color: 1, 1, 1, 1
+            size_hint_x: None
+            width: 70
+
+        TextInput:
+            id: miles_input
+            input_type: 'number'
+            multiline: False
+            halign: 'left'
+            font_size: 18
+            on_text: app.handle_input_change()
+
+        Button:
+            text: '+'
+            on_press: app.handle_increment(1)
+
+        Button:
+            text: '-'
+            on_press: app.handle_increment(-1)
+
+    Label:
+        text: 'Kilometres: {}'.format(app.km_result)
+        color: 1, 1, 0, 1
+        font_size: 24
